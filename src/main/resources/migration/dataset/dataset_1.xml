@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+										http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+    <changeSet id="dataset_1" author="aleksandrs.severgins">
+        <insert tableName="account">
+            <column name="id" valueNumeric="1"/>
+            <column name="account_number" value="ACCOUNT_TEST_01"/>
+            <column name="created_date" valueDate="2019-11-21 13:55:26.577"/>
+            <column name="balance" valueNumeric="1320345.23445"/>
+        </insert>
+
+        <insert tableName="account">
+            <column name="id" valueNumeric="2"/>
+            <column name="account_number" value="ACCOUNT_TEST_02"/>
+            <column name="created_date" valueDate="2019-11-21 13:55:26.577"/>
+            <column name="balance" valueNumeric="34534.234"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
