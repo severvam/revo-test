@@ -1,0 +1,29 @@
+configurations {
+    acceptanceTestImplementation.extendsFrom testImplementation
+    acceptanceTestRuntime.extendsFrom testRuntime
+}
+
+sourceSets {
+    acceptanceTest {
+        java.srcDir file('src/acceptance-test/java')
+        resources.srcDir file('src/acceptance-test/resources')
+        compileClasspath += sourceSets.main.output + configurations.testRuntime
+        runtimeClasspath += output + compileClasspath
+    }
+}
+
+task acceptanceTest(type: Test) {
+    description = 'Runs the acceptance tests.'
+    group = 'verification'
+    testClassesDirs = sourceSets.acceptanceTest.output.classesDirs
+    classpath = sourceSets.acceptanceTest.runtimeClasspath
+}
+
+//task runCukes(type: JavaExec) {
+//    group = "Execution"
+//    description = "Run the main class with JavaExecTask"
+//    classpath = sourceSets.main.runtimeClasspath
+//    main = 'com.revo.CukesRunner'
+//}
+
+check.dependsOn acceptanceTest
