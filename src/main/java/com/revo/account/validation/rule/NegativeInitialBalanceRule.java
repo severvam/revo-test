@@ -7,10 +7,10 @@ import com.revo.core.validation.ValidationResult;
 
 import java.math.BigDecimal;
 
-public class NegativeIntinalBalanceRule implements AccountValidationRule {
+public class NegativeInitialBalanceRule implements AccountValidationRule {
 
 	@Override
-	public ValidationResult apply(AccountDto parameter) {
+	public ValidationResult validate(AccountDto parameter) {
 		if (parameter.getBalance().compareTo(BigDecimal.ZERO) < 0) {
 			return ValidationResult.fail(AccountStatus.NEGATIVE_INITIAL_AMOUNT.toString());
 		}

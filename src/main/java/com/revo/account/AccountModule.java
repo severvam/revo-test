@@ -7,7 +7,7 @@ import com.revo.account.persistence.AccountDao;
 import com.revo.account.validation.AccountValidationRule;
 import com.revo.account.validation.AccountValidator;
 import com.revo.account.validation.rule.AccountExistsRule;
-import com.revo.account.validation.rule.NegativeIntinalBalanceRule;
+import com.revo.account.validation.rule.NegativeInitialBalanceRule;
 
 public class AccountModule extends AbstractModule {
 
@@ -21,7 +21,7 @@ public class AccountModule extends AbstractModule {
 		bind(AccountValidator.class).in(Singleton.class);
 		bind(AccountService.class).in(Singleton.class);
 		multibinder.addBinding().to(AccountExistsRule.class);
-		multibinder.addBinding().to(NegativeIntinalBalanceRule.class);
+		multibinder.addBinding().to(NegativeInitialBalanceRule.class);
 	}
 
 }

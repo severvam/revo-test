@@ -20,13 +20,13 @@ public class AccountExistsTransferValidationRule implements TransferValidationRu
 	}
 
 	@Override
-	public ValidationResult apply(TransferDto parameter) {
+	public ValidationResult validate(TransferDto parameter) {
 		final Optional<Account> accountFrom = Optional.ofNullable(accountDao.findByAccountNumber(parameter.getAccountFrom()));
 		final Optional<Account> accountTo = Optional.ofNullable(accountDao.findByAccountNumber(parameter.getAccountTo()));
 		if (accountFrom.isPresent() && accountTo.isPresent()) {
 			return ValidationResult.OK;
 		}
-		return ValidationResult.fail(TransferStatus.NOT_EXISTING_ACCOUNT.toString());
+		return ValidationResult.fail(TransferStatus.ERROR_NOT_EXISTING_ACCOUNT.toString());
 	}
 
 }

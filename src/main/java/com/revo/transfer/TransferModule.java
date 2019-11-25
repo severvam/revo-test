@@ -9,6 +9,7 @@ import com.revo.transfer.validation.rule.AccountExistsTransferValidationRule;
 import com.revo.transfer.validation.rule.EnoughFundingValidationRule;
 import com.revo.transfer.validation.rule.NegativeAmountRule;
 import com.revo.transfer.validation.TransferValidationRule;
+import com.revo.transfer.validation.rule.ZeroAmountRule;
 
 public class TransferModule extends AbstractModule {
 
@@ -24,6 +25,7 @@ public class TransferModule extends AbstractModule {
 		multibinder.addBinding().to(EnoughFundingValidationRule.class);
 		multibinder.addBinding().to(NegativeAmountRule.class);
 		multibinder.addBinding().to(AccountExistsTransferValidationRule.class);
+		multibinder.addBinding().to(ZeroAmountRule.class);
 	}
 
 }

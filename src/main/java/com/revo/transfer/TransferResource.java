@@ -2,7 +2,6 @@ package com.revo.transfer;
 
 import com.revo.core.OperationResult;
 import com.revo.core.validation.ValidationResult;
-import com.revo.transfer.validation.TransferStatus;
 import com.revo.transfer.validation.TransferValidator;
 
 import javax.inject.Inject;

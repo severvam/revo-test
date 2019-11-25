@@ -13,7 +13,7 @@ public class Validator<R extends ValidationRule<T>, T> {
 	public ValidationResult validate(T parameter) {
 		return validationRules
 				.stream()
-				.map(rule -> rule.apply(parameter))
+				.map(rule -> rule.validate(parameter))
 				.filter(result -> !result.isValid())
 				.findFirst()
 				.orElse(ValidationResult.OK);

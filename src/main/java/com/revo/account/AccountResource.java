@@ -1,12 +1,12 @@
 package com.revo.account;
 
 import com.revo.account.persistence.Account;
-import com.revo.account.persistence.AccountDao;
 import com.revo.account.validation.AccountValidator;
 import com.revo.core.OperationResult;
 import com.revo.core.validation.ValidationResult;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -33,7 +33,7 @@ public class AccountResource {
 	}
 
 	@POST
-	public Response createAccount(AccountDto accountDto) {
+	public Response createAccount(@Valid AccountDto accountDto) {
 		final ValidationResult validate = accountValidator.validate(accountDto);
 		if (validate.isValid()) {
 			accountService.createAccount(accountDto);

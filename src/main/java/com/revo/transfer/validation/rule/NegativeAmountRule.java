@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 public class NegativeAmountRule implements TransferValidationRule {
 
 	@Override
-	public ValidationResult apply(TransferDto parameter) {
+	public ValidationResult validate(TransferDto parameter) {
 		final boolean isNegativeAmount = parameter.getAmount().compareTo(BigDecimal.ZERO) < 0;
 		if (isNegativeAmount) {
 			return ValidationResult.fail(TransferStatus.ERROR_NEGATIVE_AMOUNT.toString());

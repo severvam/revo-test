@@ -20,7 +20,7 @@ public class AccountExistsRule implements AccountValidationRule {
 	}
 
 	@Override
-	public ValidationResult apply(AccountDto parameter) {
+	public ValidationResult validate(AccountDto parameter) {
 		final Optional<Account> account = Optional.ofNullable(accountDao.findByAccountNumber(parameter.getNumber()));
 		if (account.isPresent()) {
 			return ValidationResult.fail(AccountStatus.ACCOUNT_ALREADY_EXISTS.toString());
