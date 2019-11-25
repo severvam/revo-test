@@ -4,7 +4,7 @@ import com.google.inject.AbstractModule;
 
 import javax.inject.Singleton;
 
-public class CorePersistanceModule extends AbstractModule {
+public class CorePersistenceModule extends AbstractModule {
 
     @Override
     protected void configure() {
