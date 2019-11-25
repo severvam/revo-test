@@ -1,16 +1,14 @@
 package com.revo
 
-
-import javax.inject.Inject
-import javax.inject.Named
+import com.google.inject.Key
+import com.google.inject.name.Names
 
 class AppSpec extends IntegrationSpec {
 
-    @Inject
-    @Named(App.APP_PORT)
-    String applicationPort
-
     def 'should initialize context of the application'() {
+        setup:
+        String applicationPort = injector.getInstance(Key.get(String.class, Names.named(App.APP_PORT)))
+
         expect:
         '3000' == applicationPort
     }

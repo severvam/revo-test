@@ -21,7 +21,7 @@ public class EnoughFundingValidationRule implements TransferValidationRule {
 	@Override
 	public ValidationResult validate(TransferDto parameter) {
 		final Account account = accountDao.findByAccountNumber(parameter.getAccountFrom());
-		if (account.getBalance().compareTo(parameter.getAmount()) < 0) {
+		if (account != null && account.getBalance().compareTo(parameter.getAmount()) < 0) {
 			return ValidationResult.fail(TransferStatus.ERROR_INSUFFICIENT_FUNDS.toString());
 		}
 		return ValidationResult.OK;

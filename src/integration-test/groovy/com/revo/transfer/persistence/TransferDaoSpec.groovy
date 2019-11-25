@@ -4,17 +4,13 @@ import com.revo.IntegrationSpec
 import com.revo.account.persistence.Account
 import com.revo.account.persistence.AccountDao
 
-import javax.inject.Inject
-
 class TransferDaoSpec extends IntegrationSpec {
-
-    @Inject
-    TransferDao transferDao
-    @Inject
-    AccountDao accountDao
 
     def 'should store data in db'() {
         setup:
+        TransferDao transferDao = injector.getInstance(TransferDao)
+        AccountDao accountDao = injector.getInstance(AccountDao)
+
         def accountFrom = new Account(number: "1-from", createdDate: new Date(), balance: 100)
         def accountTo = new Account(number: "1-to", createdDate: new Date(), balance: 10)
         accountDao.persist(accountFrom)
