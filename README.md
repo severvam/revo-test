@@ -60,5 +60,5 @@ if there method call then variable type added explicitly
 For example
 
 ```java
-Account account = new Account();
+Account account = service.getAccount();
 ```
