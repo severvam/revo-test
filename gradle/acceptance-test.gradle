@@ -19,11 +19,4 @@ task acceptanceTest(type: Test) {
     classpath = sourceSets.acceptanceTest.runtimeClasspath
 }
 
-//task runCukes(type: JavaExec) {
-//    group = "Execution"
-//    description = "Run the main class with JavaExecTask"
-//    classpath = sourceSets.main.runtimeClasspath
-//    main = 'com.revo.CukesRunner'
-//}
-
 check.dependsOn acceptanceTest

@@ -16,7 +16,7 @@ Using standalone Jar
 
 1. build application using command:
 ```shell script
-gradle clean build
+gradle clean build -x acceptanceTest
 ```
 
 2. run application
